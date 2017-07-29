@@ -3,6 +3,9 @@ class Playlist {
   // constructor function - requires name, creator username, and optionally genre and tracks
   constructor(name, username, genre, tracks) {
 
+    // generate random ID
+    this.id = Math.round(Math.random() * 1000000);
+
     // name of this playlist
     this.name = name;
 
@@ -44,3 +47,5 @@ testPlaylist.addTrack("Gangsta's Paradise");
 console.log(testPlaylist.listTracks());
 testPlaylist.deleteTrack("Gin & Juice");
 console.log(testPlaylist.listTracks());
+
+module.exports = Playlist;
