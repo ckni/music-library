@@ -17,11 +17,24 @@ class Track {
     this.genre = genre || null;
   }
 
+  // show all details formatted nicely
   showDetails() {
-    console.log(`"${this.name}" by ${this.artists.join(", ")}`);
+    if (this.nuked_at) {
+      console.log("This song was nuked at", this.nuked_at);
+    } else {
+      console.log(`"${this.name}" by ${this.artists.join(", ")}`);
+      console.log("Release Date:", this.release_date);
+      console.log("Genre:", this.genre || "N/A");
+    }
     console.log("ID:", this.id);
-    console.log("Release Date:", this.release_date);
-    console.log("Genre:", this.genre || "N/A");
+  }
+
+  // NUKE THIS SONG!
+  NUKE() {
+    this.nuked_at = new Date();
+    this.name = null;
+    this.artists = [];
+    this.genre = null;
   }
 }
 
@@ -29,4 +42,9 @@ class Track {
 const testTrack = new Track("Scenario", ["A Tribe Called Quest"], "March 24, 1992", "90s Hip Hop");
 testTrack.showDetails();
 
+// test driver - NUKE!
+testTrack.NUKE();
+testTrack.showDetails();
+
+// export
 module.exports = Track;

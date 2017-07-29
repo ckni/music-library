@@ -35,6 +35,15 @@ class Playlist {
   listTracks() {
     return this.tracks;
   }
+
+  // NUKE THIS WHOLE PLAYLIST!
+  NUKE() {
+    this.nuked_at = new Date();
+    this.name = null;
+    this.created_by = null;
+    this.genre = null;
+    this.tracks = [];
+  }
 }
 
 // test driver - new playlist
@@ -48,4 +57,9 @@ console.log(testPlaylist.listTracks());
 testPlaylist.deleteTrack("Gin & Juice");
 console.log(testPlaylist.listTracks());
 
+// test driver - NUKE!
+testPlaylist.NUKE();
+console.log("Nuked:", testPlaylist);
+
+// export
 module.exports = Playlist;

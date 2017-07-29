@@ -3,6 +3,9 @@ class Library {
   // constructor function - requires name and optionally tracks and playlists
   constructor(name, tracks, playlists) {
 
+    // generate random ID
+    this.id = Math.round(Math.random() * 1000000);
+
     // name of this library
     this.name = name;
 
@@ -47,6 +50,14 @@ class Library {
   listPlaylists() {
     return this.playlists;
   }
+
+  // NUKE THIS WHOLE LIBRARY!
+  NUKE() {
+    this.nuked_at = new Date();
+    this.name = null;
+    this.tracks = [];
+    this.playlists = [];
+  }
 }
 
 // test driver - new library
@@ -62,3 +73,10 @@ console.log(testLibrary.listTracks());
 testLibrary.addPlaylist("Shower");
 testLibrary.deletePlaylist("00s Rap");
 console.log(testLibrary.listPlaylists());
+
+// test driver - NUKE!
+testLibrary.NUKE();
+console.log("Nuked:", testLibrary);
+
+// export
+module.exports = Library;
