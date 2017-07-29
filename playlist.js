@@ -1,7 +1,7 @@
 class Playlist {
 
-  // constructor function - requires name, creator username, and optionally genre and songs
-  constructor(name, username, genre, songs) {
+  // constructor function - requires name, creator username, and optionally genre and tracks
+  constructor(name, username, genre, tracks) {
 
     // name of this playlist
     this.name = name;
@@ -13,24 +13,24 @@ class Playlist {
     // genre. optional
     this.genre = genre || null;
 
-    // array of songs. optional
-    this.songs = songs || [];
+    // array of tracks. optional
+    this.tracks = tracks || [];
   }
 
-  // add a new song to this playlist
-  addSong(song) {
-    this.songs.push(song);
+  // add a new track to this playlist
+  addtrack(track) {
+    this.tracks.push(track);
   }
 
-  // delete a song from this playlist
-  deleteSong(song) {
-    const id = this.songs.indexOf(song);
-    this.songs.splice(id, 1);
+  // delete a track from this playlist
+  deletetrack(track) {
+    const id = this.tracks.indexOf(track);
+    this.tracks.splice(id, 1);
   }
 
-  // list all songs in this playlist
-  listSongs() {
-    return this.songs;
+  // list all tracks in this playlist
+  listtracks() {
+    return this.tracks;
   }
 }
 
